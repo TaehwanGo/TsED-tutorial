@@ -1,3 +1,7 @@
+# Ts.ED 백엔드 공부하기
+
+- [공부하면서 정리한 문서](/docs/)
+
 <p style="text-align: center" align="center">
   <a href="https://tsed.io" target="_blank"><img src="https://tsed.io/tsed-og.png" width="200" alt="Ts.ED logo"/></a>
 </p>
@@ -53,15 +57,8 @@ Edit `.barreslby.json` to customize it:
 
 ```json
 {
-  "directory": [
-    "./src/controllers/rest",
-    "./src/controllers/pages"
-  ],
-  "exclude": [
-    "__mock__",
-    "__mocks__",
-    ".spec.ts"
-  ],
+  "directory": ["./src/controllers/rest", "./src/controllers/pages"],
+  "exclude": ["__mock__", "__mocks__", ".spec.ts"],
   "delete": true
 }
 ```
