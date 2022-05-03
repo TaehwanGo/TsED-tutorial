@@ -13,3 +13,5 @@
 ? Choose extra linter tools
 ? Choose the package manager: Yarn
 ```
+
+- 커밋 메세지 테스트
