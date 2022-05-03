@@ -1,4 +1,4 @@
-# 프로젝트 셋업
+# 0. 프로젝트 셋업
 
 > npm install -g @tsed/cli
 > tsed init .
@@ -13,5 +13,3 @@
 ? Choose extra linter tools
 ? Choose the package manager: Yarn
 ```
-
-- 커밋 메세지 테스트
