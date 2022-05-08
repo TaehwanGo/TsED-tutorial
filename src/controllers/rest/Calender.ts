@@ -1,36 +1,17 @@
 import { BodyParams } from "@tsed/platform-params";
-import { Post } from "@tsed/schema";
+import { Returns, Put } from "@tsed/schema";
 import { Controller } from "@tsed/di";
-import { CalendarModel } from "../models/CalendarModel";
-import { PayloadModel } from "../models/PayloadModel";
+
+interface Calendar {
+  id: string;
+  name: string;
+}
 
 @Controller("/calendars")
 export class CalendarCtrl {
-  @Post()
-  updatePayload(@BodyParams() payload: PayloadModel): any {
-    console.log("payload", payload);
-
-    return payload;
-  }
-
-  @Post()
-  updateCalendar(@BodyParams("calendar") calendar: CalendarModel): any {
-    console.log("calendar", calendar);
-
-    return calendar;
-  }
-
-  @Post()
-  updatePayloads(@BodyParams() payloads: PayloadModel[]): any {
-    console.log("payloads", payloads);
-
-    return payloads;
-  }
-
-  @Post()
-  updateCalendars(@BodyParams("calendars") calendars: CalendarModel[]): any {
-    console.log("calendars", calendars);
-
-    return calendars;
+  @Put("/")
+  @Returns(201)
+  create(@BodyParams("name") id: string): Calendar {
+    return { id: "2", name: "test" };
   }
 }

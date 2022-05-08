@@ -105,3 +105,9 @@ export class CalendarCtrl {
 @ RawQueryParams
 
 - Express.request.query without transformation and validation
+
+## Response
+
+### Status
+
+- @Returns와 @Status 데코레이터를 통해 HTTP 응답 상태코드를 변경할 수 있다
