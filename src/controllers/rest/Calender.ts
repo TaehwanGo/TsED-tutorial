@@ -1,24 +1,30 @@
 import { BodyParams } from "@tsed/platform-params";
-import { ContentType, Returns } from "@tsed/schema";
+import { Header, Returns } from "@tsed/schema";
 import { Controller } from "@tsed/di";
 
 @Controller("/calendars")
 export class CalendarCtrl {
-  @ContentType(".html") // => 'text/html'
-  @ContentType("html") // => 'text/html'
-  @ContentType("json") // => 'application/json'
-  @ContentType("application/json") // => 'application/json'
-  @ContentType("png")
-  getContent(@BodyParams("name") name: string): any {
-    return "something";
+  @Header({
+    "Content-Type": "text/plain",
+    "Content-Length": 123,
+    ETag: {
+      value: "12345",
+      description: "header description",
+    },
+  })
+  create(@BodyParams("name") name: string): string {
+    return `Text plain ${name}`;
   }
 
-  @Returns(200, String).ContentType(".html") // => 'text/html'
-  @Returns(200, String).ContentType("html") // => 'text/html'
-  @Returns(200, Object).ContentType("json") // => 'application/json'
-  @Returns(200, Object).ContentType("application/json") // => 'application/json'
-  @Returns(200, String).ContentType("png")
-  getContent2(@BodyParams("name") name: string): any {
-    return "something";
+  @Returns().Headers({
+    "Content-Type": "text/plain",
+    "Content-Length": 123,
+    ETag: {
+      value: "12345",
+      description: "header description",
+    },
+  })
+  create2(@BodyParams("name") name: string): string {
+    return `Text plain ${name}`;
   }
 }
