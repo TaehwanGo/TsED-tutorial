@@ -1,26 +1,36 @@
-import { Get } from "@tsed/schema";
+import { BodyParams } from "@tsed/platform-params";
+import { Post } from "@tsed/schema";
 import { Controller } from "@tsed/di";
-import { PathParams } from "@tsed/platform-params";
-
-interface Calendar {
-  id: string;
-  name: string;
-}
+import { CalendarModel } from "../models/CalendarModel";
+import { PayloadModel } from "../models/PayloadModel";
 
 @Controller("/calendars")
 export class CalendarCtrl {
-  @Get("/:id")
-  async get(@PathParams("id") id: string): Promise<Calendar> {
-    return {
-      id,
-      name: "test",
-    };
+  @Post()
+  updatePayload(@BodyParams() payload: PayloadModel): any {
+    console.log("payload", payload);
+
+    return payload;
   }
 
-  @Get()
-  findAll() {
-    // This endpoint will never get called
-    // because the "/calendars" request is going
-    // to be captured by the "/calendars/:id" route handler
+  @Post()
+  updateCalendar(@BodyParams("calendar") calendar: CalendarModel): any {
+    console.log("calendar", calendar);
+
+    return calendar;
+  }
+
+  @Post()
+  updatePayloads(@BodyParams() payloads: PayloadModel[]): any {
+    console.log("payloads", payloads);
+
+    return payloads;
+  }
+
+  @Post()
+  updateCalendars(@BodyParams("calendars") calendars: CalendarModel[]): any {
+    console.log("calendars", calendars);
+
+    return calendars;
   }
 }

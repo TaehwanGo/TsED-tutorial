@@ -1,4 +1,4 @@
-# 1. Controller
+# Controller
 
 - API URL, HTTP method 등이 정해짐
 
@@ -18,7 +18,7 @@
 - HTTP method
   - @All, @Get, @Post, @Put, @Delete, @Head, @Patch, @Options
 
-# 2. Configuration
+## Configuration
 
 ```ts
 import { Configuration } from "@tsed/di";
@@ -67,8 +67,41 @@ export class CalendarCtrl {
 - @BodyParams : Express.request.body
 - Raw가 붙으면 변환 및 검증 없이 가져온다는 뜻
 
-// TODO : 마저 정리하기
+## Axios response
 
-# 참고
+- Axios response를 Express.js response로 변환 가능
 
-- https://tsed.io/docs/controllers.html
+## Request
+
+### Decorators
+
+- later
+  - https://tsed.io/docs/controllers.html#request
+
+### Input parameters
+
+- 데코레이터를 이용해서 Express request object안에 있는 데이터를 가져올 수 있다
+
+@ BodyParams
+
+- Express.request.body
+
+@ RawBodyParams
+
+- Express.request.rawBody
+
+@ PathParams
+
+- Express.request.params
+
+@ RawPathParams
+
+- Express.request.params without transformation and validation
+
+@ QueryParams
+
+- Express.request.query
+
+@ RawQueryParams
+
+- Express.request.query without transformation and validation
