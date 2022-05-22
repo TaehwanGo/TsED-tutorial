@@ -4,3 +4,7 @@
 
 export * from "./Calender";
 export * from "./HelloWorldController";
+// export * from "./MyController";
+export * from "./Proxy";
+// export * from "./User";
+export * from "./StudyController";

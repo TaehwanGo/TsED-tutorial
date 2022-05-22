@@ -111,3 +111,9 @@ export class CalendarCtrl {
 ### Status
 
 - @Returns와 @Status 데코레이터를 통해 HTTP 응답 상태코드를 변경할 수 있다
+
+### Redirect
+
+- redirect url은 host의 root를 기준으로 보낼 수 있음
+
+### Generics
